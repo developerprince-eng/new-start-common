@@ -1,0 +1,21 @@
+syntax = 'proto3';
+
+option go_package = "new-start-sms-microservice/utilities/sms";
+option java_package = "com.newstart.microservice";
+option java_multiple_files = true;
+
+message SingleRequest {
+    string mobileNumberTo = 1;
+    string messagebody = 2;
+    
+}
+
+message SingleResponse {
+    SingleRequest singleRequest = 1;
+    string status = 2;
+    
+}
+
+service SendSingleSMS {
+    rpc Send(SingleRequest) returns (SingleResponse);
+}
